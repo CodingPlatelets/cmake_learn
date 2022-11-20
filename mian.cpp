@@ -1,15 +1,14 @@
 /*
  * @LastEditors: platelets wenkanedward@gmail.com
  * @Date: 2022-11-20 01:06:53
- * @LastEditTime: 2022-11-20 11:53:46
+ * @LastEditTime: 2022-11-20 12:40:59
  * Copyright (c) 2022 by platelets email: wenkanedward@gmail.com, All Rights Reserved.
  */
 #include "adder.h"
 
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 #include <iostream>
 
-#include "adder.h"
 int main(){
     std::cout<<"Hello cmake"<< std::endl; 
     std::cout<<add(123.4,245.2) << "\n";
