@@ -6,7 +6,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # set(CMAKE_TOOLCHAIN_FILE "/home/platelets/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
-set(CMAKE_PREFIX_PATH "/home/platelets/vcpkg/installed/x64-linux/share")
+# set(CMAKE_PREFIX_PATH "/home/platelets/vcpkg/installed/x64-linux/share")
+add_definitions("-std=c++17")
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 configure_file(BASConfig.h.in BASConfig.h)
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -33,4 +37,4 @@ target_link_directories(${PROJECT_NAME}
         external/glfw/src
         )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE adder PUBLIC glfw PRIVATE fmt::fmt)
+target_link_libraries(${PROJECT_NAME} PRIVATE adder PUBLIC glfw PUBLIC ${CONAN_LIBS})
